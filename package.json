@@ -1,0 +1,22 @@
+{
+  "name": "api-de-noseque",
+  "version": "1.0.0",
+  "description": "API restfull",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mucleck/API-de-noseque.git"
+  },
+  "author": "Ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mucleck/API-de-noseque/issues"
+  },
+  "homepage": "https://github.com/mucleck/API-de-noseque#readme",
+  "dependencies": {
+    "mongoose": "^8.9.4"
+  }
+}
