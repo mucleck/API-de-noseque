@@ -2,9 +2,9 @@
   "name": "api-de-noseque",
   "version": "1.0.0",
   "description": "API restfull",
-  "main": "test.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,11 @@
     "url": "https://github.com/mucleck/API-de-noseque/issues"
   },
   "homepage": "https://github.com/mucleck/API-de-noseque#readme",
-  "dependencies": {
+  "devDependencies": {
     "mongoose": "^8.9.4"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9"
   }
 }
