@@ -14,5 +14,17 @@ app.listen(port, () => console.log("Hola", port));
 
 mongoose
 .connect(process.env.MONGODB_URI)
-.then(() => console.log("Connected DB"))
+.then(async () => {
+    
+    console.log("Connected DB")
+
+    // Selecciona la base de datos que deseas usar
+    const dbName = "sample_mflix"; // Cambia esto por el nombre de tu base de datos
+    const db = mongoose.connection.useDb(dbName);
+
+    // Lista las colecciones de la base de datos
+    const collections = await db.db.listCollections().toArray();
+    console.log("Collections:", collections.map((col) => col.name));
+
+})
 .catch((error) => console.error(error))
