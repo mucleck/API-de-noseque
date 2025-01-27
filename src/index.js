@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const rutasEspecies = require('./routes/rutasEspecies')
+const usuariosGestiones = require('./routes/usuariosGestiones')
 require('dotenv').config();
 
 const app = express();
@@ -24,5 +25,6 @@ app.get("/", (req, res) => {
 });
 
 app.use('/especies', rutasEspecies);
+app.use('/usuarios', usuariosGestiones)
 
 app.listen(port, () => console.log("Servidor escuchando en el puerto", port));
