@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const rutasEspecies = require('./routes/rutasEspecies')
 const usuariosGestiones = require('./routes/usuariosGestiones')
+const loginRutas = require('./routes/login')
 require('dotenv').config();
 
 const app = express();
@@ -13,7 +14,10 @@ mongoose.connect(process.env.MONGODB_URI)
 .catch((error) => console.error('Error al conectar a MongoDB:', error));
 
 // Middleware
+
+app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/public'));
 app.use((req, res, next) => {
     res.locals.path = req.path;
     next();
@@ -21,10 +25,10 @@ app.use((req, res, next) => {
 
 // Ruta de base
 app.get("/", (req, res) => {
-    res.send('Va no me jodas');
+  res.render('../src/views/home', { mensaje: 'Bienvenido al blog' });
 });
 
-app.use('/especies', rutasEspecies);
+app.use('/login', loginRutas)
 app.use('/usuarios', usuariosGestiones)
 
 app.listen(port, () => console.log("Servidor escuchando en el puerto", port));
