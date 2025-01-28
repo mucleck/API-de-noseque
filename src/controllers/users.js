@@ -13,6 +13,33 @@ const get_all_users = (req,res) => {
 }
 
 
+const signupUser = (req, res) => {
+    const user = new Users( {nombre: 'Ali', password: 'Bonsais', descripcion: 'Buenas', imagenURL: 'Ali'} )
+    //Checkear si existe 
+    const existingUser =  Users.findOne( { nombre: "Ali" }).then(result => {
+        if(result){
+            res.send(result)
+        } else {
+            user.save().then(resultado => {
+                res.send("Usuario creado")
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        }
+        
+    }).catch(err => {console.log("Buenas")})
+    /*
+    user.save().then(resultado => {
+        res.send("Usuario creado")
+    })
+    .catch(err => {
+        console.log(err)
+    })*/
+}
+
+
 module.exports = {
     get_all_users,
+    signupUser,
 }

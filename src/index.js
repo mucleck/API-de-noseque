@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     next();
   });
 
-// Ruta de prueba
+// Ruta de base
 app.get("/", (req, res) => {
     res.send('Va no me jodas');
 });
